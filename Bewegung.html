@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bewegung</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+
+    <h1>Bewegung</h1>
+
+    <canvas id="scene" width="500" height="500" style="border: 1px dashed rgb(0, 0, 0)"></canvas>
+   
+   <script>
+       
+        /** @type {CanvasRenderingContext2D} */
+        let ctx = scene.getContext("2d");
+ 
+            let onTick = () =>
+            {
+                console.log(new Date(), "tick")
+            }
+            //Funktion `onTick´ alle 500 Millisekunden aufrufen
+            setInterval(onTick, 500)
+
+
+
+
+            //Neues Leeres Bild erzeugen
+            let player = new Image()
+            //Bildquelle definieren
+            player.src = "https://w7.pngwing.com/pngs/927/817/png-transparent-globe-emoji-earth-world-europe-europe-miscellaneous-sphere-sign.png"
+            
+            //Gewünschte Zeichengröße definieren (Originalgröße: 450x293)
+            //Wenn beide Werte gleich skaliert werden bleibt das Seitenverhältnis gleich und das Bild wird nicht verzerrt
+            let playerWith = 450 / 10
+            let playerHeight = 293 / 10
+         
+         
+             let yPos = 10
+
+            let drawObjekt = () =>
+            {
+                ctx.clearRect(0, 0, 500, 500)
+                ctx.strokeStyle = "black"
+                ctx.strokeRect(230, yPos, 40, 40)
+                ctx.drawImage(player, 130, yPos, playerWith, playerHeight)
+                console.log(new Date(), "tick")
+
+                yPos = yPos + 50
+                
+            }
+                setInterval(drawObjekt, 50)
+                drawObjekt()
+                drawObjekt()
+                drawObjekt()
+                drawObjekt()
+                drawObjekt()
+                
+                
+
+    </script>
+
+</body>
+
+</html>
